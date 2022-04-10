@@ -20,7 +20,6 @@ app.get('/', (req, res) => {
 
 app.post('/register', (req, res) => {
   // 회원가입 시 입력되는 정보를 DB에 저장
-
   const user = new User(req.body)
   user.save((err, userInfo) => {
     if (err) return res.json({ success: false, err })
