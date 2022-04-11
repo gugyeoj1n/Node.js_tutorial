@@ -1,16 +1,17 @@
-const express = require('express')
+const express = require('../node_modules/express')
 const app = express()
-const port = 3000
-const bodyParser = require('body-parser')
+const port = 5000
+const bodyParser = require('../node_modules/body-parser')
 const { User } = require('./models/User')
 const config = require('./config/key')
-const cookieParser = require('cookie-parser')
+const cookieParser = require('../node_modules/cookie-parser')
 const { auth } = require('./middleware/auth')
 
-const mongoose = require('mongoose')
+const mongoose = require('../node_modules/mongoose')
 mongoose.connect(config.mongoURI)
   .then(() => console.log("MongoDB Connected. . ."))
   .catch(err => console.log("Something went wrong. . ."))
+  // IP 바뀔 때마다 몽고DB 가서 바꾸는 거 잊지 말기
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -68,4 +69,8 @@ app.get('/api/users/logout', auth, (req, res) => {
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
+})
+
+app.get('/api/hello', (req, res) => {
+  res.send("HELLO")
 })

@@ -1,7 +1,7 @@
-const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
+const mongoose = require('../../node_modules/mongoose')
+const bcrypt = require('../../node_modules/bcrypt')
 const saltRounds = 10
-const jwt = require('jsonwebtoken')
+const jwt = require('../../node_modules/jsonwebtoken')
 
 const userSchema = mongoose.Schema({
     name: {
