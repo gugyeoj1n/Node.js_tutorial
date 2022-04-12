@@ -1,4 +1,4 @@
-import { LOGIN_USER } from "../_actions/types"
+import { LOGIN_USER, REGISTER_USER } from "../_actions/types"
 
 
 export default function (prevState = {}, action) {
@@ -6,6 +6,9 @@ export default function (prevState = {}, action) {
         case LOGIN_USER :
             return { ...prevState, loginSuccess: action.payload }
             break
+
+        case REGISTER_USER :
+            return { ...prevState, register: action.payload }
 
         default :
             return prevState
