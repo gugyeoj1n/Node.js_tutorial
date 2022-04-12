@@ -31,7 +31,7 @@ function LoginPage() {
         if (response.payload.loginSuccess) {
           navigate('/')
         } else {
-          alert('ERROR')
+          alert(response.payload.message)
         }
       })
 
