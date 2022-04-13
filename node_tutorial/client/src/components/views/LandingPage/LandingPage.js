@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 function LandingPage() {
-  let navigate = useNavigate()
   useEffect(() => {
     axios.get('/api/hello').then(response => console.log(response.data))
   }, [])
@@ -12,7 +11,9 @@ function LandingPage() {
     axios.get('/api/users/logout')
       .then(response => {
         if (response.data.success) {
-          navigate('/login')
+          return (
+            <Navigate to='/login' replace={true} />
+          )
         }
       })
   }
